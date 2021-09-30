@@ -158,7 +158,7 @@ local global_keys = awful.util.table.join(
 	),
 	awful.key(
 		{modkey, 'Shift'}, 
-		'F1',  
+		'p',  
 		function() 
 			awful.screen.focus_relative(-1) 
 		end,
@@ -166,7 +166,7 @@ local global_keys = awful.util.table.join(
 	),
 	awful.key(
 		{modkey, 'Shift'}, 
-		'F2', 
+		'n', 
 		function()
 			awful.screen.focus_relative(1)
 		end,
@@ -192,6 +192,22 @@ local global_keys = awful.util.table.join(
 			awful.spawn('konsole', false)
 		end,
 		{description = 'open terminal', group = 'hotkeys'}
+	),
+	awful.key(
+		{modkey},
+		'b',
+		function()
+			awful.spawn('google-chrome-stable', false)
+		end,
+		{description = 'open google-chrome', group = 'hotkeys'}
+	),
+	awful.key(
+		{modkey},
+		'h',
+		function()
+			awful.spawn('thunar', false)
+		end,
+		{description = 'home', group = 'hotkeys'}
 	),
 	awful.key(
 		{},
