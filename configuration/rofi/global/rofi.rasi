@@ -32,6 +32,7 @@ window {
 	width: 750px;
 	orientation: vertical;
 	border-radius: 12px;
+	fullscreen: true;
 }
 
 prompt {

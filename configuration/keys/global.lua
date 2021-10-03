@@ -241,6 +241,16 @@ local global_keys = awful.util.table.join(
 		{description = 'increase volume up by 5%', group = 'hotkeys'}
 	),
 	awful.key(
+		{modkey},
+		'F8',
+		function()
+			awful.spawn('amixer -D pulse sset Master 5%+', false)
+			awesome.emit_signal('widget::volume')
+			awesome.emit_signal('module::volume_osd:show', true)
+		end,
+		{description = 'increase volume up by 5%', group = 'hotkeys'}
+	),
+	awful.key(
 		{},
 		'XF86AudioLowerVolume',
 		function()
@@ -251,8 +261,26 @@ local global_keys = awful.util.table.join(
 		{description = 'decrease volume up by 5%', group = 'hotkeys'}
 	),
 	awful.key(
+		{modkey},
+		'F7',
+		function()
+			awful.spawn('amixer -D pulse sset Master 5%-', false)
+			awesome.emit_signal('widget::volume')
+			awesome.emit_signal('module::volume_osd:show', true)
+		end,
+		{description = 'decrease volume up by 5%', group = 'hotkeys'}
+	),
+	awful.key(
 		{},
 		'XF86AudioMute',
+		function()
+			awful.spawn('amixer -D pulse set Master 1+ toggle', false)
+		end,
+		{description = 'toggle mute', group = 'hotkeys'}
+	),
+	awful.key(
+		{modkey},
+		'F6',
 		function()
 			awful.spawn('amixer -D pulse set Master 1+ toggle', false)
 		end,
@@ -394,14 +422,14 @@ local global_keys = awful.util.table.join(
 		end, 
 		{description = 'toggle systray visibility', group = 'Utility'}
 	),
-	awful.key(
-		{modkey},
-		'l',
-		function()
-			awful.spawn(apps.default.lock, false)
-		end,
-		{description = 'lock the screen', group = 'Utility'}
-	),
+	-- awful.key(
+	-- 	{modkey},
+	-- 	'l',
+	-- 	function()
+	-- 		awful.spawn(apps.default.lock, false)
+	-- 	end,
+	-- 	{description = 'lock the screen', group = 'Utility'}
+	-- ),
 	awful.key(
 		{modkey}, 
 		'Return',
